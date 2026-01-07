@@ -1,0 +1,17 @@
+﻿{
+  "name": "com.dyns.utilitas",
+  "displayName": "Utilitas",
+  "description": "Utility library, providing useful extensions and tools for Unity projects.",
+  "version": "1.0.0",
+  "keywords": [
+    "extension",
+    "utility",
+    "editor"
+  ],
+  "category": "extensions",
+  "dependencies": {},
+  "author": {
+    "name": "Dylan SCHUMACKER",
+    "url": "https://github.com/dynSR"
+  }
+}
