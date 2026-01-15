@@ -1,7 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Utilitas {
-    public class Singleton<T> : MonoBehaviour where T : Component {
+    public class PersistentSingleton<T> : MonoBehaviour where T : Component {
+        public bool autoUnparentOnAwake = true;
+
         protected static T instance;
 
         public static T Instance {
@@ -18,13 +20,24 @@ namespace Utilitas {
             }
         }
 
-        protected Singleton() { }
+        protected PersistentSingleton() { }
 
         protected virtual void Awake() => Init();
 
         public virtual void Init() {
             if (!Application.isPlaying) return;
-            instance = this as T;
+
+            if (autoUnparentOnAwake) transform.Unparent();
+
+            if (instance == null) {
+                instance = this as T;
+                DontDestroyOnLoad(gameObject);
+            }
+            else {
+                if (instance != this) {
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }

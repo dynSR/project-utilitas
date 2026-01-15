@@ -1,0 +1,47 @@
+using UnityEngine;
+using UnityEditor;
+using UnityEngine.UIElements;
+
+namespace Utilitas {
+    internal class MainToolbarElementStyler {
+        public static void StyleElement<T>(string elementName, System.Action<T> styleAction) where T : VisualElement {
+            EditorApplication.delayCall += () => {
+                ApplyStyle(elementName, (element) => {
+                    T targetElement = null;
+
+                    if (element is T typedElement) {
+                        targetElement = typedElement;
+                    }
+                    else {
+                        targetElement = element.Query<T>().First();
+                    }
+
+                    if (targetElement != null) {
+                        styleAction(targetElement);
+                    }
+                });
+            };
+        }
+
+        private static void ApplyStyle(string elementName, System.Action<VisualElement> styleCallback) {
+            var element = FindElementByName(elementName);
+            if (element != null) {
+                styleCallback(element);
+            }
+        }
+
+        private static VisualElement FindElementByName(string name) {
+            var windows = Resources.FindObjectsOfTypeAll<EditorWindow>();
+            foreach (var window in windows) {
+                VisualElement root = window.rootVisualElement;
+                if (root == null) continue;
+
+                VisualElement element;
+                if ((element = root.FindElementByName(name)) != null) return element;
+                if ((element = root.FindElementByTooltip(name)) != null) return element;
+            }
+
+            return null;
+        }
+    }
+}
