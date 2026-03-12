@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Utilitas {
-    internal class CloseWindowTab {
+namespace Utilitas.Hotkeys {
+    internal static class CloseWindowTab {
         [MenuItem("File/Close Window Tab %w")]
         static void CloseTab() {
             EditorWindow focusedWindow = EditorWindow.focusedWindow;

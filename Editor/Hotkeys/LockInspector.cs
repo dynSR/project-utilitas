@@ -3,8 +3,8 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Utilitas {
-    internal class LockInspector {
+namespace Utilitas.Hotkeys {
+    internal static class LockInspector {
         private static readonly MethodInfo flipLocked;
         private static readonly PropertyInfo constrainProportions;
         private const BindingFlags BINDING_FLAGS = BindingFlags.NonPublic | BindingFlags.Instance;

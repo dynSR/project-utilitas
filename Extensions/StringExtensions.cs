@@ -23,6 +23,65 @@ namespace Utilitas {
             return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
 
+        /// <summary>
+        /// Returns a new string containing only the first occurrence of each character
+        /// from the source string, preserving the original character order.
+        /// </summary>
+        /// <param name="value">
+        /// Source string from which duplicate characters will be removed.
+        /// </param>
+        /// <returns>
+        /// A new string with duplicate characters removed.
+        /// The relative order of the remaining characters is preserved.
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown if <paramref name="value"/> is <c>null</c>.
+        /// </exception>
+        public static string WithNoDuplicate(this string value) {
+            var seen = new System.Collections.Generic.HashSet<char>();
+            var result = new System.Text.StringBuilder(value.Length);
+
+            foreach (char c in value) {
+                if (seen.Add(c)) {
+                    result.Append(c);
+                }
+            }
+
+            return result.ToString();
+        }
+
+        /// <summary>
+        /// Appends a platform-specific newline sequence to the end of the string.
+        /// </summary>
+        /// <param name="value">
+        /// Source string to which the newline will be appended.
+        /// </param>
+        /// <returns>
+        /// A new string ending with <see cref="Environment.NewLine"/>.
+        /// </returns>
+        public static string WithNewLine(this string value) {
+            return value + Environment.NewLine;
+        }
+
+        /// <summary>
+        /// Extracts the font family name from a font identifier string using a dash ('-') separator.
+        /// </summary>
+        /// <param name="value">
+        /// Font name string expected to contain a dash separating the family name
+        /// from the style or variant (e.g. <c>"Roboto-Bold"</c>).
+        /// </param>
+        /// <returns>
+        /// The font family name portion of the string (substring before the last dash).
+        /// </returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown if <paramref name="value"/> does not contain a dash character.
+        /// </exception>
+        public static string GetFontFamilyName(this string value) {
+            return value.Contains('-')
+                ? value.Substring(0, value.LastIndexOf('-'))
+                : throw new ArgumentException("", nameof(value));
+        }
+
         // Rich text formatting, for Unity UI elements that support rich text.
         public static string RichColor(this string value, string color) => $"<color={color}>{value}</color>";
         public static string RichSize(this string value, int size) => $"<size={size}>{value}</size>";
