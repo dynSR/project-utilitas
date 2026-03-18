@@ -4,19 +4,6 @@ using System.Linq;
 
 namespace Utilitas {
     public static class ListExtensions {
-        /// <summary>
-        /// Determines whether a collection is null or has no elements
-        /// without having to enumerate the entire collection to get a count.
-        /// </summary>
-        /// <param name="list">List to evaluate</param>
-        public static bool IsNullOrEmpty<T>(this IList<T> list) {
-            return list == null || list.IsEmpty();
-        }
-
-        public static bool IsEmpty<T>(this IList<T> list) {
-            return list.Count == 0;
-        }
-
         public static void AddMultiple<T>(
             this List<T> list,
             params T[] elements
@@ -25,10 +12,12 @@ namespace Utilitas {
             // all new elements at once, in order to avoid
             // repeated internal reallocations and copies during calls to Add().
             list.Capacity = Math.Max(list.Capacity, list.Count + elements.Length);
-
-            foreach (T element in elements) {
-                list.Add(element);
-            }
+            foreach (T element in elements) list.Add(element);
+        }
+        
+        public static void InsertRange<T>(this IList<T> list, int index, IEnumerable<T> items)
+        {
+            foreach (var item in items) list.Insert(index++, item);
         }
 
         /// <summary>
