@@ -1,4 +1,13 @@
-﻿# [1.0.1]
+﻿# [1.0.2]
+
+- Added Transform extensions:
+  - Position
+  - Local Position
+  - Local Scale
+  - Local EulerAngles
+  - EulerAngles
+
+# [1.0.1]
 
 - Added a SetParent method for Components.
 

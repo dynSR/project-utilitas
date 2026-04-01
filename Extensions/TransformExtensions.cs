@@ -4,10 +4,7 @@ using System.Collections.Generic;
 namespace Utilitas {
     public static class TransformExtensions {
         public static void Unparent(this Transform trs, bool debug = false) {
-            if (debug) {
-                Debug.Log($"Unparent() called on {trs.gameObject.name}");
-            }
-
+            if (debug) Debug.Log($"Unparent() called on {trs.gameObject.name}");
             trs.SetParent(null);
         }
 
@@ -34,9 +31,9 @@ namespace Utilitas {
         /// </summary>
         /// <param name="transform">Transform to use</param>
         public static void Reset(this Transform transform) {
-            transform.position = Vector3.zero;
+            transform.SetPosition(Vector3.zero);
             transform.localRotation = Quaternion.identity;
-            transform.localScale = Vector3.one;
+            transform.SetLocalScale(Vector3.one);
         }
 
         /// <summary>
@@ -85,5 +82,101 @@ namespace Utilitas {
                 action(parent.GetChild(i));
             }
         }
+
+        #region Position Setters
+
+        public static void SetPosition(this Transform transform, Vector3 position) { transform.position = position; }
+
+        public static void SetPositionX(this Transform transform, float x) {
+            transform.position = transform.position.With(x: x);
+        }
+
+        public static void SetPositionY(this Transform transform, float y) {
+            transform.position = transform.position.With(y: y);
+        }
+
+        public static void SetPositionZ(this Transform transform, float z) {
+            transform.position = transform.position.With(z: z);
+        }
+
+        #endregion
+
+        #region Local Position Setters
+
+        public static void SetLocalPosition(this Transform transform, Vector3 localPosition) {
+            transform.localPosition = localPosition;
+        }
+
+        public static void SetLocalPositionX(this Transform transform, float x) {
+            transform.localPosition = transform.localPosition.With(x: x);
+        }
+
+        public static void SetLocalPositionY(this Transform transform, float y) {
+            transform.localPosition = transform.localPosition.With(y: y);
+        }
+
+        public static void SetLocalPositionZ(this Transform transform, float z) {
+            transform.localPosition = transform.localPosition.With(z: z);
+        }
+
+        #endregion
+
+        #region Local Scale Setters
+
+        public static void SetLocalScale(this Transform transform, Vector3 scale) { transform.localScale = scale; }
+
+        public static void SetLocalScaleX(this Transform transform, float x) {
+            transform.localScale = transform.localScale.With(x: x);
+        }
+
+        public static void SetLocalScaleY(this Transform transform, float y) {
+            transform.localScale = transform.localScale.With(y: y);
+        }
+
+        public static void SetLocalScaleZ(this Transform transform, float z) {
+            transform.localScale = transform.localScale.With(z: z);
+        }
+
+        #endregion
+
+        #region Local EulerAngles Setters
+
+        public static void SetLocalEulerAngles(this Transform transform, Vector3 localEulerAngles) {
+            transform.localEulerAngles = localEulerAngles;
+        }
+
+        public static void SetLocalEulerAnglesX(this Transform transform, float x) {
+            transform.localEulerAngles = transform.localEulerAngles.With(x: x);
+        }
+
+        public static void SetLocalEulerAnglesY(this Transform transform, float y) {
+            transform.localEulerAngles = transform.localEulerAngles.With(y: y);
+        }
+
+        public static void SetLocalEulerAnglesZ(this Transform transform, float z) {
+            transform.localEulerAngles = transform.localEulerAngles.With(z: z);
+        }
+
+        #endregion
+
+        #region EulerAngles Setters
+
+        public static void SetEulerAngles(this Transform transform, Vector3 eulerAngles) {
+            transform.eulerAngles = eulerAngles;
+        }
+
+        public static void SetEulerAnglesX(this Transform transform, float x) {
+            transform.eulerAngles = transform.eulerAngles.With(x: x);
+        }
+
+        public static void SetEulerAnglesY(this Transform transform, float y) {
+            transform.eulerAngles = transform.eulerAngles.With(y: y);
+        }
+
+        public static void SetEulerAnglesZ(this Transform transform, float z) {
+            transform.eulerAngles = transform.eulerAngles.With(z: z);
+        }
+
+        #endregion
     }
 }
