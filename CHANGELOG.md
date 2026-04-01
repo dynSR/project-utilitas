@@ -1,4 +1,8 @@
-﻿# [1.0.2]
+﻿# [1.0.3]
+
+- Added unnecessary Transform extensions.
+  - 
+# [1.0.2]
 
 - Added Transform extensions:
   - Position

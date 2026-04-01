@@ -31,9 +31,9 @@ namespace Utilitas {
         /// </summary>
         /// <param name="transform">Transform to use</param>
         public static void Reset(this Transform transform) {
-            transform.SetPosition(Vector3.zero);
+            transform.position = Vector3.zero;
             transform.localRotation = Quaternion.identity;
-            transform.SetLocalScale(Vector3.one);
+            transform.localScale = Vector3.one;
         }
 
         /// <summary>
@@ -85,8 +85,6 @@ namespace Utilitas {
 
         #region Position Setters
 
-        public static void SetPosition(this Transform transform, Vector3 position) { transform.position = position; }
-
         public static void SetPositionX(this Transform transform, float x) {
             transform.position = transform.position.With(x: x);
         }
@@ -102,10 +100,6 @@ namespace Utilitas {
         #endregion
 
         #region Local Position Setters
-
-        public static void SetLocalPosition(this Transform transform, Vector3 localPosition) {
-            transform.localPosition = localPosition;
-        }
 
         public static void SetLocalPositionX(this Transform transform, float x) {
             transform.localPosition = transform.localPosition.With(x: x);
@@ -123,8 +117,6 @@ namespace Utilitas {
 
         #region Local Scale Setters
 
-        public static void SetLocalScale(this Transform transform, Vector3 scale) { transform.localScale = scale; }
-
         public static void SetLocalScaleX(this Transform transform, float x) {
             transform.localScale = transform.localScale.With(x: x);
         }
@@ -141,10 +133,6 @@ namespace Utilitas {
 
         #region Local EulerAngles Setters
 
-        public static void SetLocalEulerAngles(this Transform transform, Vector3 localEulerAngles) {
-            transform.localEulerAngles = localEulerAngles;
-        }
-
         public static void SetLocalEulerAnglesX(this Transform transform, float x) {
             transform.localEulerAngles = transform.localEulerAngles.With(x: x);
         }
@@ -160,10 +148,6 @@ namespace Utilitas {
         #endregion
 
         #region EulerAngles Setters
-
-        public static void SetEulerAngles(this Transform transform, Vector3 eulerAngles) {
-            transform.eulerAngles = eulerAngles;
-        }
 
         public static void SetEulerAnglesX(this Transform transform, float x) {
             transform.eulerAngles = transform.eulerAngles.With(x: x);
