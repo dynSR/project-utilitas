@@ -1,7 +1,18 @@
-﻿# [1.0.3]
+﻿# [1.0.4]
 
-- Added unnecessary Transform extensions.
-  - 
+#### Array Extensions
+
+- Added First and Last functions
+
+#### Others
+
+- Added Stacks first utility
+- Moved ReflectionUtilities.cs to Editor folder
+
+# [1.0.3]
+
+- Added Transform extensions.
+
 # [1.0.2]
 
 - Added Transform extensions:
