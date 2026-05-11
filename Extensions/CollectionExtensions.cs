@@ -7,10 +7,12 @@ namespace Utilitas {
         /// Determines whether a collection is null or has no elements
         /// without having to enumerate the entire collection to get a count.
         /// </summary>
-        /// <param name="list">List to evaluate</param>
-        public static bool IsNullOrEmpty<T>(this ICollection<T> list) { return list == null || list.IsEmpty(); }
+        /// <param name="collection">List to evaluate</param>
+        public static bool IsNullOrEmpty<T>(this ICollection<T> collection) {
+            return collection == null || collection.IsEmpty();
+        }
 
-        public static bool IsEmpty<T>(this ICollection<T> list) { return list.Count == 0; }
+        public static bool IsEmpty<T>(this ICollection<T> collection) { return collection.Count == 0; }
 
         public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> items) {
             foreach (T item in items) collection.Add(item);
