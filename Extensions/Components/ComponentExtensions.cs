@@ -22,7 +22,7 @@ namespace Utilitas
             return !behaviour.enabled;
         }
 
-        private static void Enable(this Behaviour behaviour) => behaviour.enabled = true;
-        private static void Disable(this Behaviour behaviour) => behaviour.enabled = false;
+        public static void Enable(this Behaviour behaviour) => behaviour.enabled = true;
+        public static void Disable(this Behaviour behaviour) => behaviour.enabled = false;
     }
 }
