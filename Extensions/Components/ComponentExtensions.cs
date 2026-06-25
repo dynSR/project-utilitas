@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace Utilitas {
-    public static class ComponentExtensions {
-        public static void SetParent(this Component component, Transform parent) {
+namespace Utilitas
+{
+    public static class ComponentExtensions
+    {
+        public static bool TrySetParent(this Component component, Transform parent)
+        {
             component.transform.SetParent(parent);
+            return component.transform.IsChildOf(parent);
         }
     }
 }

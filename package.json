@@ -2,7 +2,7 @@
   "name": "com.dyns.utilitas",
   "displayName": "Utilitas",
   "description": "Utility library, providing useful extensions and tools for Unity projects.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "keywords": [
     "extension",
     "utility",

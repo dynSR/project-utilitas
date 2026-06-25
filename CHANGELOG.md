@@ -1,4 +1,15 @@
-﻿# [1.0.5]
+﻿# [1.0.6]
+
+#### MonoBeahaviourExtensions
+
+- Updated SetParent to TrySetParent (from void method to bool function)
+
+#### MonoBeahaviourExtensions
+
+- Added TrySetParent
+- Added GetOrAddComponent
+
+# [1.0.5]
 
 #### Package
 
