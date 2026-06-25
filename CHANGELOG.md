@@ -1,4 +1,14 @@
-﻿# [1.0.4]
+﻿# [1.0.5]
+
+#### Package
+
+- Put Extensions files in proper folder
+
+#### AnimationClip Extensions
+
+- Added GetTotalFramesCount function
+
+# [1.0.4]
 
 #### Array Extensions
 
@@ -16,11 +26,11 @@
 # [1.0.2]
 
 - Added Transform extensions:
-  - Position
-  - Local Position
-  - Local Scale
-  - Local EulerAngles
-  - EulerAngles
+    - Position
+    - Local Position
+    - Local Scale
+    - Local EulerAngles
+    - EulerAngles
 
 # [1.0.1]
 
