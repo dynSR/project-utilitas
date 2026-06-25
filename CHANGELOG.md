@@ -1,10 +1,17 @@
-﻿# [1.0.6]
+﻿# [1.0.7]
 
-#### MonoBeahaviourExtensions
+#### ComponentExtensions
+
+- Added TryEnable and TryDisable functions
+- Added Enable and Disable methods
+
+# [1.0.6]
+
+#### ComponentExtensions
 
 - Updated SetParent to TrySetParent (from void method to bool function)
 
-#### MonoBeahaviourExtensions
+#### MonoBehaviourExtensions
 
 - Added TrySetParent
 - Added GetOrAddComponent
